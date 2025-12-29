@@ -857,16 +857,57 @@
     </footer>
 
     <script>
-        // Simple form handling
+        // Google Sheets form submission
+        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
         document.querySelector('.cta-form').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Here you would typically send the form data to a backend
-            // For now, just show a confirmation
-            alert('¡Gracias por tu interés! Te contactaremos pronto.\n\nPor ahora, este es un proyecto en validación. Guarda este enlace y vuelve pronto para más actualizaciones.');
+            const form = this;
+            const submitButton = form.querySelector('.btn-primary');
+            const originalButtonText = submitButton.textContent;
 
-            // Reset form
-            this.reset();
+            // Collect form data
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone') || 'No proporcionado',
+                profile: formData.get('profile'),
+                interest: formData.get('interest') || 'No especificado',
+                comments: formData.get('comments') || '',
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent
+            };
+
+            // Show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+
+            // Send to Google Sheets
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(function() {
+                // Success (note: no-cors means we can't read the response)
+                alert('¡Gracias por tu interés! 🎉\n\nHemos recibido tu información y te contactaremos pronto.\n\nEste proyecto está en validación - tu interés nos ayuda a decidir si abrimos en Salamanca.');
+                form.reset();
+            })
+            .catch(function(error) {
+                // Error handling
+                console.error('Error:', error);
+                alert('Hubo un problema al enviar el formulario.\n\nPor favor, contacta directamente por email a:\nhola@coworkingsalamanca.es');
+            })
+            .finally(function() {
+                // Reset button
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            });
         });
     </script>
 </body>
