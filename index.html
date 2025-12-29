@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coworking Silencioso en Salamanca | Espacio de Trabajo Profesional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(45, 55, 72, 0.95), rgba(45, 55, 72, 0.85)),
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80') center/cover;
+            color: white;
+            padding: 120px 20px 100px;
+            text-align: center;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            color: #f7fafc;
+        }
+
+        .not-list {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .not-list h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        .not-list ul {
+            list-style: none;
+            font-size: 0.95rem;
+        }
+
+        .not-list li {
+            padding: 0.3rem 0;
+            color: #f7fafc;
+        }
+
+        .not-list li:before {
+            content: "✕ ";
+            color: #fbbf24;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+        }
+
+        section:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #1a202c;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .section-intro {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.2rem;
+            color: #4a5568;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        /* Problem Section */
+        .problems {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .problem-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .problem-card p {
+            color: #718096;
+            line-height: 1.7;
+        }
+
+        /* Who For Section */
+        .profiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 3rem auto;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #f59e0b;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile-card h3 {
+            font-size: 1.2rem;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-card p {
+            color: #718096;
+            font-size: 0.95rem;
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #1a202c;
+            font-weight: 600;
+        }
+
+        .feature p {
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        .feature-highlight {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: #f59e0b;
+        }
+
+        .pricing-card.featured {
+            border-color: #f59e0b;
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: "Más Popular";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f59e0b;
+            color: white;
+            padding: 0.4rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f59e0b;
+            margin: 1rem 0;
+        }
+
+        .price span {
+            font-size: 1.2rem;
+            color: #718096;
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .pricing-features li {
+            padding: 0.6rem 0;
+            color: #4a5568;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li:before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .pricing-note {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #78350f;
+            font-weight: 500;
+        }
+
+        /* Validation Section */
+        .validation {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .validation h2 {
+            color: white;
+        }
+
+        .validation p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto 1rem;
+        }
+
+        .validation-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .validation-box ul {
+            list-style: none;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .validation-box li {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .validation-box li:before {
+            content: "→ ";
+            color: #fbbf24;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #1a202c;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: #cbd5e0;
+        }
+
+        .cta-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #f59e0b;
+        }
+
+        .btn-primary {
+            width: 100%;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        .form-note {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #718096;
+            text-align: center;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            background: #f7fafc;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-item {
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .contact-item strong {
+            color: #1a202c;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: #f59e0b;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Image Section */
+        .image-section {
+            padding: 0;
+            margin: 4rem 0;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a202c;
+            color: #cbd5e0;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .pricing-grid,
+            .features,
+            .problems {
+                grid-template-columns: 1fr;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .image-grid img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Coworking Silencioso en Salamanca</h1>
+            <p class="subtitle">Un espacio de trabajo profesional. Tranquilo. Sin distracciones.</p>
+
+            <div class="not-list">
+                <h3>Esto NO es:</h3>
+                <ul>
+                    <li>Una cafetería</li>
+                    <li>Un espacio social</li>
+                    <li>Una sala de eventos</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section>
+        <div class="container">
+            <h2>¿Por qué existe este espacio?</h2>
+            <p class="section-intro">
+                Porque los profesionales necesitan un lugar donde poder trabajar de verdad.
+            </p>
+
+            <div class="problems">
+                <div class="problem-card">
+                    <h3>🏠 Casa = Distracciones</h3>
+                    <p>Familia, tareas domésticas, la nevera... trabajar desde casa significa interrupciones constantes.</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3>☕ Cafeterías = Ruido</h3>
+                    <p>Música alta, conversaciones, gente entrando y saliendo. Imposible concentrarse en trabajo profundo.</p>
+                </div>
+
+                <div class="problem-card">
+                    <h3>🎪 Coworkings sociales = Inconsistencia</h3>
+                    <p>Networking, eventos, gente buscando charla. Perfecto para socializar. Pésimo para trabajar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who For Section -->
+    <section>
+        <div class="container">
+            <h2>¿Para quién es este espacio?</h2>
+            <p class="section-intro">
+                Este espacio está diseñado específicamente para:
+            </p>
+
+            <div class="profiles">
+                <div class="profile-card">
+                    <h3>👨‍💻 Trabajadores remotos</h3>
+                    <p>Profesionales que necesitan un lugar estable y silencioso.</p>
+                </div>
+
+                <div class="profile-card">
+                    <h3>💼 Autónomos</h3>
+                    <p>Consultores, abogados, terapeutas que requieren privacidad.</p>
+                </div>
+
+                <div class="profile-card">
+                    <h3>🎓 Investigadores</h3>
+                    <p>Doctorandos, investigadores, opositores que necesitan concentración.</p>
+                </div>
+
+                <div class="profile-card">
+                    <h3>👥 Equipos pequeños</h3>
+                    <p>Equipos de 2-6 personas que buscan oficina privada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Section -->
+    <div class="image-section">
+        <div class="image-grid">
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80" alt="Espacio de trabajo tranquilo">
+            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80" alt="Oficina moderna">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80" alt="Escritorios profesionales">
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section>
+        <div class="container">
+            <h2>Lo que hace diferente este espacio</h2>
+            <p class="section-intro">
+                No son características. Son filtros.
+            </p>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🤫</div>
+                    <h3>Silencio primero</h3>
+                    <p>Normas estrictas de silencio. Si necesitas hacer llamadas, hay espacios específicos. El área de trabajo es para trabajar.</p>
+                    <span class="feature-highlight">Prioridad absoluta</span>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🪑</div>
+                    <h3>Escritorios fijos</h3>
+                    <p>Tu escritorio. Tu espacio. No hot desking. No buscar sitio cada día. Estabilidad para profesionales serios.</p>
+                    <span class="feature-highlight">Tu espacio personal</span>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🔑</div>
+                    <h3>Acceso 24/7</h3>
+                    <p>Trabaja cuando necesites. Madrugadas, fines de semana. Tu horario, tu decisión.</p>
+                    <span class="feature-highlight">Total flexibilidad</span>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🚪</div>
+                    <h3>Oficinas privadas</h3>
+                    <p>Para equipos pequeños o profesionales que necesitan máxima privacidad. Espacios de 2 a 6 personas.</p>
+                    <span class="feature-highlight">Disponibles</span>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">📅</div>
+                    <h3>Mes a mes</h3>
+                    <p>Sin ataduras. Sin permanencia. Contratos mensuales. Cancela cuando quieras.</p>
+                    <span class="feature-highlight">Sin compromiso</span>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Cero eventos</h3>
+                    <p>No networking forzado. No talleres. No interrupciones. Solo trabajo.</p>
+                    <span class="feature-highlight">Enfoque total</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section>
+        <div class="container">
+            <h2>Precios indicativos</h2>
+            <p class="section-intro">
+                Estos precios son aproximados y nos ayudan a validar la demanda en Salamanca.
+            </p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Escritorio Fijo</h3>
+                    <div class="price">180€<span>/mes</span></div>
+                    <ul class="pricing-features">
+                        <li>Tu escritorio fijo personal</li>
+                        <li>Acceso 24/7</li>
+                        <li>Internet de alta velocidad</li>
+                        <li>Café y té ilimitado</li>
+                        <li>Sala de reuniones (reserva)</li>
+                        <li>Espacio para llamadas</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Oficina Privada</h3>
+                    <div class="price">450€<span>/mes</span></div>
+                    <ul class="pricing-features">
+                        <li>Oficina cerrada (2-3 personas)</li>
+                        <li>Acceso 24/7</li>
+                        <li>Llave privada</li>
+                        <li>Internet dedicado</li>
+                        <li>Mobiliario completo</li>
+                        <li>Máxima privacidad</li>
+                        <li>Perfecto para consultas</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Oficina Equipo</h3>
+                    <div class="price">750€<span>/mes</span></div>
+                    <ul class="pricing-features">
+                        <li>Oficina cerrada (4-6 personas)</li>
+                        <li>Acceso 24/7</li>
+                        <li>Espacio configurable</li>
+                        <li>Internet dedicado</li>
+                        <li>Sala de reuniones propia</li>
+                        <li>Almacenamiento seguro</li>
+                        <li>Para equipos pequeños</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pricing-note">
+                ⚠️ Precios orientativos para fase de validación. Los precios finales se confirmarán antes de la apertura.
+            </div>
+        </div>
+    </section>
+
+    <!-- Validation Section -->
+    <section class="validation">
+        <div class="container">
+            <h2>Estamos en fase de validación</h2>
+            <p>
+                Antes de abrir este espacio en Salamanca, necesitamos saber si hay demanda real de profesionales que buscan lo mismo que tú: tranquilidad para trabajar.
+            </p>
+
+            <div class="validation-box">
+                <ul>
+                    <li>No hay compromiso de pago</li>
+                    <li>Solo queremos medir el interés real</li>
+                    <li>Te avisaremos si decidimos abrir</li>
+                    <li>Tendrás prioridad en la reserva</li>
+                </ul>
+            </div>
+
+            <p style="margin-top: 2rem; font-size: 1.1rem;">
+                Si esto resuena contigo, déjanos tus datos abajo.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Quiero más información</h2>
+            <p>Déjanos tus datos y te contactaremos cuando tengamos novedades</p>
+
+            <form class="cta-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Nombre completo *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="profile">¿Cuál describe mejor tu situación? *</label>
+                    <select id="profile" name="profile" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="remote">Trabajador remoto</option>
+                        <option value="autonomo">Autónomo</option>
+                        <option value="consultant">Consultor</option>
+                        <option value="lawyer">Abogado</option>
+                        <option value="therapist">Terapeuta/Psicólogo</option>
+                        <option value="researcher">Investigador/Doctorando</option>
+                        <option value="team">Equipo pequeño (2-6 personas)</option>
+                        <option value="other">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="interest">¿Qué te interesa?</label>
+                    <select id="interest" name="interest">
+                        <option value="">Selecciona una opción</option>
+                        <option value="fixed-desk">Escritorio fijo</option>
+                        <option value="private-small">Oficina privada (2-3 personas)</option>
+                        <option value="private-large">Oficina privada (4-6 personas)</option>
+                        <option value="undecided">No estoy seguro todavía</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Comentarios (opcional)</label>
+                    <textarea id="comments" name="comments" rows="3" placeholder="¿Algo más que quieras contarnos?"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary">Avísame cuando abráis</button>
+
+                <p class="form-note">
+                    No compartiremos tu información. Solo la usaremos para contactarte sobre este espacio.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2>¿Tienes preguntas?</h2>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>📍 Ubicación</strong>
+                    Salamanca, España<br>
+                    <span style="color: #718096; font-size: 0.9rem;">(Ubicación exacta por confirmar)</span>
+                </div>
+
+                <div class="contact-item">
+                    <strong>✉️ Email</strong>
+                    <a href="mailto:hola@coworkingsalamanca.es">hola@coworkingsalamanca.es</a>
+                </div>
+
+                <div class="contact-item">
+                    <strong>💬 WhatsApp</strong>
+                    <a href="https://wa.me/34600000000">+34 600 00 00 00</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Coworking Salamanca. En fase de validación.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                Este proyecto está valorando su viabilidad en Salamanca. Los detalles están sujetos a cambios.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form handling
+        document.querySelector('.cta-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Here you would typically send the form data to a backend
+            // For now, just show a confirmation
+            alert('¡Gracias por tu interés! Te contactaremos pronto.\n\nPor ahora, este es un proyecto en validación. Guarda este enlace y vuelve pronto para más actualizaciones.');
+
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
